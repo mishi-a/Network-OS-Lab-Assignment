@@ -1,0 +1,2 @@
+// Explain :
+To get the parent process id we used getppid() command in child process,and in parent process pid gives the process id for child process.

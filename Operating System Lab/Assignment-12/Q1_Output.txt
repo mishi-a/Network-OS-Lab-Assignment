@@ -1,0 +1,30 @@
+//Output
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-12$ g++ Q1.cpp 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-12$ ./a.out 
+FCFS disk Scheduling Algorithm :
+Request Processed Order :
+95--> 180--> 34--> 119--> 11--> 123--> 62--> 64--> null
+Total Head movement is 644 and seek time is 3220ms
+
+SCAN disk Scheduling Algorithm: 
+Request Processed Order :
+62--> 64--> 95--> 119--> 123--> 180--> 34--> 11--> null
+Total Head movement is 337 and seek time is 1685ms
+
+CSCAN disk Scheduling Algorithm: 
+Request Processed Order :
+62--> 64--> 95--> 119--> 123--> 180--> 11--> 34--> null
+Total Head movement is 183 and seek time is 915ms
+
+SSTF disk Scheduling Algorithm: 
+Request Processed Order :
+62--> 64--> 34--> 11--> 95--> 119--> 123--> 180--> null
+Total Head movement is 236 and seek time is 1180ms
+
+
+
+//Explanation :
+FCFS : Job which requested first is served first.
+SCAN : Tie is broken to move left or right by finding the direction with shortest seek time.
+CSCAN : Same as SCAN but when at one end it reaches the other by just one movement.
+SSTF : job with shortest seek time is served at each instance.

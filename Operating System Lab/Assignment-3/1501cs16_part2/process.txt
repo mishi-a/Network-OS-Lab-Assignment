@@ -1,0 +1,2 @@
+In computing, a process is an instance of a computer program that is being executed.
+It contains the program code and its current activity.

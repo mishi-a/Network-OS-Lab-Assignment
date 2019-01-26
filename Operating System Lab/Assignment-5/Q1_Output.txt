@@ -1,0 +1,14 @@
+//Output
+darkmatter@hp-15:~/Desktop/oslab/Assignment-5$ gcc -pthread Q1.c 
+darkmatter@hp-15:~/Desktop/oslab/Assignment-5$ ./a.out 
+Current threadId = 140698080331520
+Current threadId = 140698088724224
+ThreadId = 140698080331520,Reading sharedVariable = 0
+Updating sharedVariable by threadId = 140698080331520
+ThreadId = 140698080331520,updated sharedVariable = 1
+ThreadId = 140698088724224,Reading sharedVariable = 1
+Updating sharedVariable by threadId = 140698088724224
+ThreadId = 140698088724224,updated sharedVariable = 2
+
+//Explanation :
+using semaphore we are reading and writing a shared variable without any conflict.

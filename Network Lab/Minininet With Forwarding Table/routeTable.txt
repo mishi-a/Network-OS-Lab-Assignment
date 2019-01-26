@@ -1,0 +1,238 @@
+//R1
+mininet> R1 route del default gw 11.0.1.2
+mininet> R1 route add -net 10.0.1.0 netmask 255.255.255.0 gw 10.0.1.1
+mininet> R1 route add -net 10.0.2.0 netmask 255.255.255.0 gw 11.0.1.2
+mininet> R1 route add -net 10.0.3.0 netmask 255.255.255.0 gw 11.0.3.2
+mininet> R1 route add -net 10.0.4.0 netmask 255.255.255.0 gw 11.0.1.2
+mininet> R1 route add -net 11.0.1.0 netmask 255.255.255.0 gw 11.0.1.1
+mininet> R1 route add -net 11.0.2.0 netmask 255.255.255.0 gw 11.0.1.2
+mininet> R1 route add -net 11.0.3.0 netmask 255.255.255.0 gw 11.0.3.1
+mininet> R1 route add -net 11.0.4.0 netmask 255.255.255.0 gw 11.0.1.2
+
+mininet> R1 route
+
+mininet> R1 route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.1.0        10.0.1.1        255.255.255.0   UG    0      0        0 R1-eth0
+10.0.1.0        *               255.255.255.0   U     0      0        0 R1-eth0
+10.0.2.0        11.0.1.2        255.255.255.0   UG    0      0        0 R1-eth1
+10.0.3.0        11.0.3.2        255.255.255.0   UG    0      0        0 R1-eth2
+10.0.4.0        11.0.1.2        255.255.255.0   UG    0      0        0 R1-eth1
+11.0.1.0        11.0.1.1        255.255.255.0   UG    0      0        0 R1-eth1
+11.0.1.0        *               255.255.255.0   U     0      0        0 R1-eth1
+11.0.2.0        11.0.1.2        255.255.255.0   UG    0      0        0 R1-eth1
+11.0.3.0        11.0.3.1        255.255.255.0   UG    0      0        0 R1-eth2
+11.0.3.0        *               255.255.255.0   U     0      0        0 R1-eth2
+11.0.4.0        11.0.1.2        255.255.255.0   UG    0      0        0 R1-eth1
+
+
+//R2
+mininet> R2 route del default gw 11.0.4.2
+ R2 route add -net 10.0.1.0 netmask 255.255.255.0 gw 11.0.1.1
+ R2 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.2.1
+mininet> R2 route add -net 10.0.3.0 netmask 255.255.255.0 gw 11.0.4.2
+mininet> R2 route add -net 10.0.4.0 netmask 255.255.255.0 gw 11.0.4.2
+mininet> R2 route add -net 11.0.1.0 netmask 255.255.255.0 gw 11.0.1.2
+mininet> R2 route add -net 11.0.2.0 netmask 255.255.255.0 gw 11.0.4.2
+mininet> R2 route add -net 11.0.3.0 netmask 255.255.255.0 gw 11.0.4.2
+mininet> R2 route add -net 11.0.4.0 netmask 255.255.255.0 gw 11.0.4.1
+
+mininet> R2 route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.1.0        11.0.1.1        255.255.255.0   UG    0      0        0 R2-eth1
+10.0.2.0        10.0.2.1        255.255.255.0   UG    0      0        0 R2-eth0
+10.0.2.0        *               255.255.255.0   U     0      0        0 R2-eth0
+10.0.3.0        11.0.4.2        255.255.255.0   UG    0      0        0 R2-eth2
+10.0.4.0        11.0.4.2        255.255.255.0   UG    0      0        0 R2-eth2
+11.0.1.0        11.0.1.2        255.255.255.0   UG    0      0        0 R2-eth1
+11.0.1.0        *               255.255.255.0   U     0      0        0 R2-eth1
+11.0.2.0        11.0.4.2        255.255.255.0   UG    0      0        0 R2-eth2
+11.0.3.0        11.0.4.2        255.255.255.0   UG    0      0        0 R2-eth2
+11.0.4.0        11.0.4.1        255.255.255.0   UG    0      0        0 R2-eth2
+11.0.4.0        *               255.255.255.0   U     0      0        0 R2-eth2
+
+//R3 route
+mininet> R3 route del default gw 11.0.3.1
+mininet> R3 route add -net 10.0.1.0 netmask 255.255.255.0 gw 11.0.3.1
+mininet> R3 route add -net 10.0.2.0 netmask 255.255.255.0 gw 11.0.3.1
+mininet> R3 route add -net 10.0.3.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> R3 route add -net 10.0.4.0 netmask 255.255.255.0 gw 11.0.2.2
+mininet> R3 route add -net 11.0.1.0 netmask 255.255.255.0 gw 11.0.3.1
+mininet> R3 route add -net 11.0.2.0 netmask 255.255.255.0 gw 11.0.2.1
+mininet> R3 route add -net 11.0.3.0 netmask 255.255.255.0 gw 11.0.3.2
+mininet> R3 route add -net 11.0.4.0 netmask 255.255.255.0 gw 11.0.2.2
+mininet> R3 route del -net 10.0.2.0 netmask 255.255.255.0 gw 11.0.3.1
+mininet> R3 route add -net 10.0.2.0 netmask 255.255.255.0 gw 11.0.2.2
+
+mininet> R3 route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.1.0        11.0.3.1        255.255.255.0   UG    0      0        0 R3-eth2
+10.0.2.0        11.0.3.1        255.255.255.0   UG    0      0        0 R3-eth2
+10.0.3.0        10.0.3.1        255.255.255.0   UG    0      0        0 R3-eth0
+10.0.3.0        *               255.255.255.0   U     0      0        0 R3-eth0
+10.0.4.0        11.0.2.2        255.255.255.0   UG    0      0        0 R3-eth1
+11.0.1.0        11.0.3.1        255.255.255.0   UG    0      0        0 R3-eth2
+11.0.2.0        11.0.2.1        255.255.255.0   UG    0      0        0 R3-eth1
+11.0.2.0        *               255.255.255.0   U     0      0        0 R3-eth1
+error  ->11.0.3.0        11.0.3.1        255.255.255.0   UG    0      0        0 R3-eth2
+11.0.3.0        *               255.255.255.0   U     0      0        0 R3-eth2
+11.0.4.0        11.0.2.2        255.255.255.0   UG    0      0        0 R3-eth1
+
+
+//R4 route
+mininet> R4 route del default gw 11.0.2.1
+R4 route add -net 10.0.1.0 netmask 255.255.255.0 gw 11.0.4.1
+R4 route add -net 10.0.2.0 netmask 255.255.255.0 gw 11.0.4.1
+
+mininet> R4 route add -net 10.0.3.0 netmask 255.255.255.0 gw 11.0.2.1
+mininet> R4 route add -net 10.0.4.0 netmask 255.255.255.0 gw 10.0.4.1
+mininet> R4 route add -net 11.0.1.0 netmask 255.255.255.0 gw 11.0.4.1
+mininet> R4 route add -net 11.0.2.0 netmask 255.255.255.0 gw 11.0.2.2
+mininet> R4 route add -net 11.0.3.0 netmask 255.255.255.0 gw 11.0.2.1
+mininet> R4 route add -net 11.0.4.0 netmask 255.255.255.0 gw 11.0.4.2
+
+mininet> R4 route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.0.1.0        11.0.4.1        255.255.255.0   UG    0      0        0 R4-eth2
+10.0.2.0        11.0.4.1        255.255.255.0   UG    0      0        0 R4-eth2
+10.0.3.0        11.0.2.1        255.255.255.0   UG    0      0        0 R4-eth1
+10.0.4.0        10.0.4.1        255.255.255.0   UG    0      0        0 R4-eth0
+10.0.4.0        *               255.255.255.0   U     0      0        0 R4-eth0
+11.0.1.0        11.0.4.1        255.255.255.0   UG    0      0        0 R4-eth2
+11.0.2.0        11.0.2.2        255.255.255.0   UG    0      0        0 R4-eth1
+11.0.2.0        *               255.255.255.0   U     0      0        0 R4-eth1
+11.0.3.0        11.0.2.1        255.255.255.0   UG    0      0        0 R4-eth1
+11.0.4.0        11.0.4.2        255.255.255.0   UG    0      0        0 R4-eth2
+11.0.4.0        *               255.255.255.0   U     0      0        0 R4-eth2
+
+
+//last result
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> X X X X X X R1 X X X 
+H2 -> X H3 H4 X X X X X R3 X 
+H3 -> X H2 H4 X X X X X R3 X 
+H4 -> X H2 H3 X X X X X R3 X 
+H5 -> X X X X H6 X X X X R4 
+H6 -> X X X X H5 X X X X R4 
+H7 -> X X X X X X X R2 X X 
+R1 -> H1 X X X X X H7 R2 X X 
+R2 -> X X X X H5 H6 H7 X X R4 
+R3 -> H1 H2 H3 H4 X X X R1 X X 
+R4 -> X H2 H3 H4 H5 H6 X X X R3 
+*** Results: 70% dropped (33/110 received)
+
+//improvement
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> X X X X X H7 R1 R2 R3 R4 
+H2 -> X H3 H4 X X X X X R3 X 
+H3 -> X H2 H4 X X X X X R3 X 
+H4 -> X H2 H3 X X X X X R3 X 
+H5 -> X X X X H6 X X X X R4 
+H6 -> X X X X H5 X X X X R4 
+H7 -> H1 X X X X X R1 R2 X R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 X R1 X R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 45% dropped (60/110 received)
+
+
+mininet> H2 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H3 route add -net 10.0.1.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H4 route add -net 10.0.1.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> H2 H3 H4 X X H7 R1 R2 R3 R4 
+H2 -> H1 H3 H4 X X X R1 X R3 X 
+H3 -> H1 H2 H4 X X X R1 X R3 X 
+H4 -> H1 H2 H3 X X X R1 X R3 X 
+H5 -> X X X X H6 X X X X R4 
+H6 -> X X X X H5 X X X X R4 
+H7 -> H1 X X X X X R1 R2 X R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 X R1 X R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 37% dropped (69/110 received)
+
+mininet> H5 route add -net 10.0.1.0 netmask 255.255.255.0 gw 10.0.4.1
+mininet> H6 route add -net 10.0.1.0 netmask 255.255.255.0 gw 10.0.4.1
+
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> H2 H3 H4 H5 H6 H7 R1 R2 R3 R4 
+H2 -> H1 H3 H4 X X X R1 X R3 X 
+H3 -> H1 H2 H4 X X X R1 X R3 X 
+H4 -> H1 H2 H3 X X X R1 X R3 X 
+H5 -> H1 X X X H6 X R1 X X R4 
+H6 -> H1 X X X H5 X R1 X X R4 
+H7 -> H1 X X X X X R1 R2 X R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 X R1 X R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 31% dropped (75/110 received)
+
+mininet> H5 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.4.1
+mininet> H6 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.4.1
+*** Ping: testing ping reachability
+H1 -> H2 H3 H4 H5 H6 H7 R1 R2 R3 R4 
+H2 -> H1 H3 H4 X X X R1 X R3 X 
+H3 -> H1 H2 H4 X X X R1 X R3 X 
+H4 -> H1 H2 H3 X X X R1 X R3 X 
+H5 -> H1 X X X H6 H7 R1 R2 X R4 
+H6 -> H1 X X X H5 H7 R1 R2 X R4 
+H7 -> H1 X X X H5 H6 R1 R2 X R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 X R1 X R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 26% dropped (81/110 received)
+
+mininet> H2 route add -net 10.0.4.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H5 route add -net 10.0.3.0 netmask 255.255.255.0 gw 10.0.4.1
+mininet> H3 route add -net 10.0.4.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H4 route add -net 10.0.4.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H6 route add -net 10.0.3.0 netmask 255.255.255.0 gw 10.0.4.1
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> H2 H3 H4 H5 H6 H7 R1 R2 R3 R4 
+H2 -> H1 H3 H4 H5 H6 X R1 X R3 R4 
+H3 -> H1 H2 H4 H5 H6 X R1 X R3 R4 
+H4 -> H1 H2 H3 H5 H6 X R1 X R3 R4 
+H5 -> H1 H2 H3 H4 H6 H7 R1 R2 R3 R4 
+H6 -> H1 H2 H3 H4 H5 H7 R1 R2 R3 R4 
+H7 -> H1 X X X H5 H6 R1 R2 X R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 X R1 X R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 10% dropped (98/110 received)
+
+mininet> H3 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> H4 route add -net 10.0.2.0 netmask 255.255.255.0 gw 10.0.3.1
+mininet> pingall
+*** Ping: testing ping reachability
+H1 -> H2 H3 H4 H5 H6 H7 R1 R2 R3 R4 
+H2 -> H1 H3 H4 H5 H6 H7 R1 R2 R3 R4 
+H3 -> H1 H2 H4 H5 H6 H7 R1 R2 R3 R4 
+H4 -> H1 H2 H3 H5 H6 H7 R1 R2 R3 R4 
+H5 -> H1 H2 H3 H4 H6 H7 R1 R2 R3 R4 
+H6 -> H1 H2 H3 H4 H5 H7 R1 R2 R3 R4 
+H7 -> H1 H2 H3 H4 H5 H6 R1 R2 R3 R4 
+R1 -> H1 H2 H3 H4 H5 H6 H7 R2 R3 R4 
+R2 -> H1 H2 H3 H4 H5 H6 H7 R1 R3 R4 
+R3 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R4 
+R4 -> H1 H2 H3 H4 H5 H6 H7 R1 R2 R3 
+*** Results: 0% dropped (110/110 received)
+
+
+//Don't know why changed path from R3 to R2
+//Don't Know why need to add route in switch network
+//Don't know why interface ip can't be .0

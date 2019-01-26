@@ -1,0 +1,3 @@
+Suppose you have a fibonacci sequence of length n, where n is a positive integer and
+multiple of 3. Now you decide to cut down the sequence in three equal segments and do
+an element-wise sum of the first and third segments.

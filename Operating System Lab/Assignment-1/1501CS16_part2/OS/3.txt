@@ -1,0 +1,4 @@
+A folder named ​OS contains four non-empty and one empty text files. Each of the
+non-empty files contains different number of sentences. Write a program in shell script to
+copy the first sentence from each non-empty file to the empty file. The sentences should
+be placed based on the ascending order of the size of the non-empty files.

@@ -1,0 +1,8 @@
+OUTPUT:
+ child Process ID  is 15389
+value of glob currently (c1) is 50 
+value of glob currently after updating (c2) is 10 
+Parent Process id is 15388
+value of glob currently (p1) is 50 
+value of glob currently (p2) after updating is 13 
+

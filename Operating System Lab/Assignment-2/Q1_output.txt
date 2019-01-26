@@ -1,0 +1,4 @@
+Output :
+Child Process id from parent process is 14768
+Parent Process ID from child process is 14767
+

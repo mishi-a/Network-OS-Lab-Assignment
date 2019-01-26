@@ -1,0 +1,1 @@
+An operating system (OS) is system OS software that manages hardware, software resources, provides common services for computer programs. Every general-purpose computer must have operating system to run other applications.

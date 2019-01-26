@@ -1,0 +1,22 @@
+//Output
+darkmatter@hp-15:~/Desktop/oslab/Assignment-5$ gcc -pthread Q2.c 
+Q2.c: In function ‘myFunc’:
+Q2.c:20:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+    int val = (int)arg; 
+              ^
+Q2.c: In function ‘main’:
+Q2.c:61:56: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+     int iret = pthread_create(&threadId[i],NULL,myFunc,(void*)i);
+                                                        ^
+darkmatter@hp-15:~/Desktop/oslab/Assignment-5$ ./a.out 
+pthread1 is accessing function f()
+Lock acquired by pthread1
+pthread2 cannot access function f() lock acquired by pthread1
+Lock released by pthread1
+pthread2 is accessing function f()
+Lock acquired by pthread2
+Lock released by pthread2
+
+
+//Explanation :
+Initially pthread1 start accessing myFunc then a lock is initialized,after which when pthread2 try to access lead to error pthread1 is accessing it.When pthread1 releases lock pthread2 access it normally.

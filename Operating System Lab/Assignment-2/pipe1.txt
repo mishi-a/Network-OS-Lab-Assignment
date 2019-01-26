@@ -1,0 +1,3 @@
+This is an example file testing the use of peeps on the command line. peeps
+provide the user with a synchronized means of interprocess communication.
+Two kinds of peeps exist: named or unnamed.

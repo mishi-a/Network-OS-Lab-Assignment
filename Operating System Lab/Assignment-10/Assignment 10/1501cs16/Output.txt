@@ -1,0 +1,92 @@
+//Output OS Side
+
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-10/Assignment 10$ gcc -o OS OS.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-10/Assignment 10$ ./OS 5 2
+
+The shared memory key (PID) is 24978
+Initialized page table
+Process 25012 has requested Page 2
+Put it in free frame 0
+Unblock MMU
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=0 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+Process 25012 has requested Page 3
+Put it in free frame 1
+Unblock MMU
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=1 Frame= 1 Dirty=0 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+Process 25012 has requested Page 4
+Chose a victim page 3
+Victim is dirty, write out
+Put in victim's frame 1
+Unblock MMU
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=1 Frame= 1 Dirty=0 Requested=0
+The MMU has finished
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=1 Frame= 1 Dirty=0 Requested=0
+4 Disk access required
+
+//Output MMU Side
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-10/Assignment 10$ gcc -o MMU MMU.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-10/Assignment 10$ ./MMU 5 W2 R3 W3 R4 24978
+
+Initialized page table:
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+
+Request for page 2 in W mode
+It's not in RAM - page fault
+Set the dirty bit for page 2
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+
+Request for page 3 in R mode
+It's not in RAM - page fault
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=1 Frame= 1 Dirty=0 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+
+Request for page 3 in W mode
+It's in RAM
+Set the dirty bit for page 3
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=1 Frame= 1 Dirty=1 Requested=0
+ 4: Valid=0 Frame=-1 Dirty=0 Requested=0
+
+Request for page 4 in R mode
+It's not in RAM - page fault
+ 0: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 1: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 2: Valid=1 Frame= 0 Dirty=1 Requested=0
+ 3: Valid=0 Frame=-1 Dirty=0 Requested=0
+ 4: Valid=1 Frame= 1 Dirty=0 Requested=0
+
+Tell OS that I'm finished
+
+//Explanation :
+First of all OS creates a shared memory space to store Page Table that can be accessed by both OS and 
+MMU.Whenever MMU requires a page it search in page table if found then fine else it requests OS to 
+bring the requested Page in RAM.Once brought Control is again shifted to MMU.

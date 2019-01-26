@@ -1,0 +1,14 @@
+//Output :
+Child Process Id is 7790
+ and parent process id 7789
+           
+           PID   PPID 
+1 Z  1000  4576  4575  0  80   0 -     0 exit   pts/2    00:00:00 a.out <defunct>
+1 Z  1000  7790  7789  0  80   0 -     0 exit   pts/2    00:00:00 a.out <defunct> /*Zombie child process*/
+Checking after zombie is cleaned
+1 Z  1000  4576  4575  0  80   0 -     0 exit   pts/2    00:00:00 a.out <defunct> /*No zombie child process*/
+
+
+/* Explanation */
+
+Zombie process are those process which are not cleared from process table.Here in this case 7790 become the zombie process as it exited before parent wait() is call so it become zombie. After parent wait() is called process table is cleared and no zombie child is avalable now.

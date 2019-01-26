@@ -1,0 +1,71 @@
+//Output
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ gcc Q1.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ ./a.out 
+Welcome to the Sequential File
+Enter the number of Block in disk
+30 
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,starting block and total number of block in file
+f1 29 1
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name 	Start Block 	EndBlock
+f1 		29 		29
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,starting block and total number of block in file
+f2 15 6
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name 	Start Block 	EndBlock
+f1 		29 		29
+f2 		15 		20
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,starting block and total number of block in file
+f3 20 6
+Something Went Wrong either someone has occupied that space or out of bound
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,starting block and total number of block in file
+f3 21 8
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name 	Start Block 	EndBlock
+f1 		29 		29
+f2 		15 		20
+f3 		21 		28
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+3
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ 
+
+
+//Explanation :
+In sequential File block of file is present in contiguous location i.e between start and end 
+inclusive.User input start block and we check if it is available and contiguously block equals 
+to total number of block is present if not it can't be allocated if available allocate space .

@@ -1,0 +1,5 @@
+Process        Arrival_Time        Burst_Time        Queue_number
+P1        0        9        2
+P2        1        5        1
+P3        2        3        1
+P4        3        4        2

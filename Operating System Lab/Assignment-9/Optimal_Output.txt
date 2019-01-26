@@ -1,0 +1,32 @@
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-9$ g++ -std=c++0x Optimal.cpp 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-9$ ./a.out 
+Optimal :
+1 1 1     1     6       6 6       2 2   
+0 2 2     2     2       2 1       1 4   
+0 0 3     5     5       3 3       3 3   
+
+Using 3frames ,the reference string yielding :
+Scheme        #faults 
+Optimal          9
+Optimal :
+1 1 1     1     6         6         6   
+0 2 2     2     2         2         4   
+0 0 3     3     3         3         3   
+0 0 0     5     5         1         1   
+
+Using 4frames ,the reference string yielding :
+Scheme        #faults 
+Optimal          7
+Optimal :
+1 1 1     1     1                   4   
+0 2 2     2     2                   2   
+0 0 3     3     3                   3   
+0 0 0     5     5                   5   
+0 0 0     0     6                   6   
+
+Using 5frames ,the reference string yielding :
+Scheme        #faults 
+Optimal          6
+
+//Explanation:
+In case of Page replacement Page which are for long not accesed is replaced.In case of tie oldest one is removed.

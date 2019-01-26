@@ -1,0 +1,17 @@
+//Output
+
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ gcc -pthread Q2.c 
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ ./a.out 
+threadID[0]: localVariable = 0,staticVariable=0,globVariable=5
+threadID[0]: localVariable = 1,staticVariable=1,globVariable=6
+threadID[1]: localVariable = 0,staticVariable=1,globVariable=6
+threadID[1]: localVariable = 1,staticVariable=2,globVariable=7
+threadID[2]: localVariable = 0,staticVariable=2,globVariable=7
+threadID[2]: localVariable = 1,staticVariable=3,globVariable=8
+threadID[3]: localVariable = 0,staticVariable=3,globVariable=8
+threadID[3]: localVariable = 1,staticVariable=4,globVariable=9
+threadID[4]: localVariable = 0,staticVariable=4,globVariable=9
+threadID[4]: localVariable = 1,staticVariable=5,globVariable=10
+
+//Explanation :
+local variable is separate for each thread,while global and static variable are shared,so updating local variable has no effect on other thread while static and global variable have effect on other thread variable. 

@@ -1,0 +1,1 @@
+First we used cat command to extract text and pass it to sed command through pipe which substitute "peeps" with "pipes" and finally write to pipenew.txt

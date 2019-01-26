@@ -1,0 +1,5 @@
+//Output
+Hello Ayush Mishra
+
+/*Explanation*/
+here We have created a one way traffic from parent process to child process for passing value use pipe() system call.In parent process we are writing text i.e "Hello Ayush Mishra" which we are extracting and printing in child process.

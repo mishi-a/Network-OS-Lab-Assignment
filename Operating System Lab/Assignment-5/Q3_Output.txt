@@ -1,0 +1,195 @@
+//Output :
+
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-5$ gcc -pthread Q3.c
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-5$ ./a.out 
+Philosopher 0 starts thinking
+Philosopher 1 starts thinking
+Philosopher 2 starts thinking
+Philosopher 3 starts thinking
+Philosopher 4 starts thinking
+Philosopher 0 grab fork 0 (left)
+Philosopher 1 grab fork 1 (left)
+Philosopher 2 grab fork 2 (left)
+Philosopher 3 grab fork 3 (left)
+Philosopher 4 grab fork 4 (left)
+Parent detects deadlock, going to initiate recovery
+Parent preempts Philosopher 1
+Resource allocationMatrix :
+1 0 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 0 grab fork 1 (right)
+Philosopher 0 starts eating.
+Resource allocationMatrix :
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 0 ends eating and releases forks 0 (left) and 1 (right)
+Philosopher 0 starts thinking
+Philosopher 4 grab fork 0 (right)
+Philosopher 4 starts eating.
+Resource allocationMatrix :
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+1 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 1 
+0 0 0 0 0 
+Philosopher 4 ends eating and releases forks 4 (left) and 0 (right)
+Philosopher 3 grab fork 4 (right)
+Philosopher 3 starts eating.
+Philosopher 4 starts thinking
+Philosopher 0 grab fork 0 (left)
+Resource allocationMatrix :
+1 0 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 1 
+0 0 0 0 0 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 0 grab fork 1 (right)
+Philosopher 0 starts eating.
+Resource allocationMatrix :
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 1 
+0 0 0 0 0 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+0 0 0 0 1 
+Philosopher 3 ends eating and releases forks 3 (left) and 4 (right)
+Philosopher 3 starts thinking
+Philosopher 2 grab fork 3 (right)
+Philosopher 2 starts eating.
+Philosopher 4 grab fork 4 (left)
+Resource allocationMatrix :
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 1 1 0 
+0 0 0 0 0 
+0 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 0 ends eating and releases forks 0 (left) and 1 (right)
+Philosopher 0 starts thinking
+Philosopher 4 grab fork 0 (right)
+Philosopher 4 starts eating.
+Resource allocationMatrix :
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 1 1 0 
+0 0 0 0 0 
+1 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 0 0 
+0 0 0 1 0 
+0 0 0 0 0 
+Philosopher 2 ends eating and releases forks 2 (left) and 3 (right)
+Philosopher 2 starts thinking
+Philosopher 1 grab fork 1 (left)
+Philosopher 1 grab fork 2 (right)
+Philosopher 1 starts eating.
+Philosopher 3 grab fork 3 (left)
+Resource allocationMatrix :
+0 0 0 0 0 
+0 1 1 0 0 
+0 0 0 0 0 
+0 0 0 1 0 
+1 0 0 0 1 
+Resource requestMatrix :
+1 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 4 ends eating and releases forks 4 (left) and 0 (right)
+Philosopher 3 grab fork 4 (right)
+Philosopher 3 starts eating.
+Philosopher 4 starts thinking
+Philosopher 0 grab fork 0 (left)
+Resource allocationMatrix :
+1 0 0 0 0 
+0 1 1 0 0 
+0 0 0 0 0 
+0 0 0 1 1 
+0 0 0 0 0 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+Philosopher 1 ends eating and releases forks 1 (left) and 2 (right)
+Philosopher 1 starts thinking
+Philosopher 0 grab fork 1 (right)
+Philosopher 0 starts eating.
+Philosopher 2 grab fork 2 (left)
+Resource allocationMatrix :
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 1 0 0 
+0 0 0 1 1 
+0 0 0 0 0 
+Resource requestMatrix :
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 1 
+Philosopher 3 ends eating and releases forks 3 (left) and 4 (right)
+Philosopher 3 starts thinking
+Philosopher 2 grab fork 3 (right)
+Philosopher 2 starts eating.
+Philosopher 4 grab fork 4 (left)
+Resource allocationMatrix :
+1 1 0 0 0 
+0 0 0 0 0 
+0 0 1 1 0 
+0 0 0 0 0 
+0 0 0 0 1 
+Resource requestMatrix :
+0 0 0 0 0 
+0 1 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+0 0 0 0 0 
+^C
+
+//Explanation :
+In this we have first tried to pick the left fork then right fork and then printed the desired matrix an finally drop the left and then right one.A case of deadlock may arise when all philosopher has picked up the left one,in this case we randomly choose a person and force him to drop his left fork.To achieve correctness in result we have used semaphores and mutex lock.

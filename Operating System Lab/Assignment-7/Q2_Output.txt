@@ -1,0 +1,53 @@
+//OUTPUT
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-7$ gcc -pthread Q2.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-7$ ./a.out 
+Enter the number of students present in professor class
+5
+Professor enter the class
+Student number 1 enter the class
+Student 1 started asking question
+Student number 2 enter the class
+Student number 3 enter the class
+Student number 4 enter the class
+Student number 5 enter the class
+Professor started answering question of student 1
+Professor ended answering question of student 1
+Student 1 question ends
+Student 2 started asking question
+Professor started answering question of student 2
+Professor ended answering question of student 2
+Student 2 question ends
+Student 3 started asking question
+Professor started answering question of student 3
+Professor ended answering question of student 3
+Student 3 question ends
+Student 4 started asking question
+Professor started answering question of student 4
+Professor ended answering question of student 4
+Student 4 question ends
+Student 5 started asking question
+Professor started answering question of student 5
+Professor ended answering question of student 5
+Student 5 question ends
+Student 3 started asking question
+Professor started answering question of student 3
+Professor ended answering question of student 3
+Student 3 question ends
+Student 1 started asking question
+Professor started answering question of student 1
+Professor ended answering question of student 1
+Student 1 question ends
+Student 4 started asking question
+Professor started answering question of student 4
+Professor ended answering question of student 4
+Student 4 question ends
+Student 2 started asking question
+Professor started answering question of student 2
+Professor ended answering question of student 2
+Student 2 question ends
+Student 5 started asking question
+Professor started answering question of student 5
+and many more....
+
+//Explanation :
+To ensure that only one student ask a question a mutex lock is used ,where as to ensure that only one person is speaking two semaphore is used.Student are represented as thread whereas professor is represented in main thread.

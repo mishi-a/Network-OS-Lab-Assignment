@@ -1,0 +1,32 @@
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-9$ g++ -std=c++0x LFU.cpp 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-9$ ./a.out 
+LFU :
+1 1 1     1     1   1 1 1     1     1 1 
+0 2 2     2     2   2 2 2     2     2 2 
+0 0 3     5     6   5 6 3     6     4 3 
+
+Using 3frames ,the reference string yielding :
+Scheme        #faults 
+LFU          11
+LFU :
+1 1 1     1     1       1           1 1 
+0 2 2     2     2       2           2 2 
+0 0 3     3     6       6           6 6 
+0 0 0     5     5       3           4 3 
+
+Using 4frames ,the reference string yielding :
+Scheme        #faults 
+LFU          8
+LFU :
+1 1 1     1     1                   1   
+0 2 2     2     2                   2   
+0 0 3     3     3                   3   
+0 0 0     5     5                   4   
+0 0 0     0     6                   6   
+
+Using 5frames ,the reference string yielding :
+Scheme        #faults 
+LFU          6
+
+//Explanation:
+In case of Page replacement Page with least frequency is removed and frequency of removed page is reset to zero.In case of tie oldest one is removed.

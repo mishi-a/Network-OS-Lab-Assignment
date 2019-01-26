@@ -1,0 +1,182 @@
+import matplotlib.pyplot as plt
+import queue as Q
+
+utilNum = 0
+
+
+# class for pcket
+class DATAPACKET:
+    def __init__(self, pid=0, gtime=0.0, sourceid=0):
+        self.packetId = pid
+        self.sourceId = sourceid
+        self.gentime = gtime
+        self.qInTIme = -1
+        self.qOutTime = -1
+        self.sinkReachTime = -1
+
+
+# class for source
+class DATASOURCE:
+    def __init__(self, lamda, sid, bs):
+        self.genRate = lamda
+        self.sourceId = sid
+        self.bs = bs
+
+
+# class for switch
+class DATASWITCH:
+    def __init__(self, bwidth):
+        self.bss = bwidth
+        self.qSize = 0
+
+
+# class for various Event
+class EVENT:
+    def __init__(self, eid, pid, t):
+        self.eId = eid
+        self.pId = pid
+        self.curTime = t
+
+    def __lt__(self, other):
+        return self.curTime < other.curTime
+
+
+# function to calculate avg delay
+def calculateAvgDelay(nSource, bs, bss, pktLength, source,simTime):
+    packet = []
+    avgDelay = 0.0
+    swich = DATASWITCH(bss)
+
+    # pq is priority queue on the basis of event current time
+    pq = Q.PriorityQueue()
+
+    # generating first packet from every source at an fixed interval
+    ttime = 0.0
+    for i in range(nSource):
+        packet.append(DATAPACKET(i, ttime, i))
+        pq.put(EVENT(0, i, ttime))
+        ttime += 0.000001
+
+    pcount = 0
+    pktTot = nSource
+    lastLeftTime = 0.0
+    simTime = 5000
+    # Simulating for fixed time
+    # Event0 = generation of packet
+    # Event1 = reaching Queue time
+    # Event2 = leaving queue time
+    # Event3 = reaching sink time
+    curTime = 0
+    pkt_reach_sink = 0
+    while (pkt_reach_sink < simTime):
+        x = pq.get()
+        pid = x.pId
+        curTime = x.curTime
+        # print(curTime)
+        # Event 0 -> (Event0,Event1)
+        if x.eId == 0:
+            rate = source[packet[pid].sourceId].genRate
+            pq.put(EVENT(0, pktTot, curTime + 1 / rate))
+            packet.append(DATAPACKET(pktTot, curTime + 1 / rate, packet[pid].sourceId))
+            pktTot = pktTot + 1
+            pq.put(EVENT(1, pid, curTime + pktLength / bs))
+            packet[pid].qInTime = curTime + pktLength / bs
+        # Event 1 -> Event2
+        elif x.eId == 1:
+            rtime = (swich.qSize * pktLength) / bss
+            tx = 0
+            if packet[pid].qInTime - lastLeftTime < (pktLength / bss):
+                tx = max(0, (pktLength / bss) - (packet[pid].qInTime - lastLeftTime))
+            if lastLeftTime == 0:
+                tx = 0
+            pq.put(EVENT(2, pid, curTime + rtime + tx))
+            packet[pid].qOutTime = curTime + rtime + tx
+            avgDelay = avgDelay+packet[pid].qOutTime-packet[pid].gentime+pktLength/bss
+            swich.qSize = swich.qSize + 1
+            pcount = pcount + 1
+        # Event2 -> Event3
+        elif x.eId == 2:
+            swich.qSize = swich.qSize - 1
+            lastLeftTime = curTime
+            sTime = curTime + pktLength / bss
+            packet[pid].sinkReachTime = sTime
+            pq.put(EVENT(3, pid, sTime))
+        else:
+        	pkt_reach_sink = pkt_reach_sink + 1
+            #pcount = pcount + 1
+
+    avgDelay = avgDelay / pcount
+    return avgDelay
+
+
+def main():
+
+    print ("Enter 0 to use default value or 1 to use own")
+    resp = int(input())
+    if resp == 0:
+        # nsource = number of source
+        nSource = 4
+
+        # bs = bandwidth between source and switch in bit
+        bs = 2e6
+
+        # bss = bandwidth between switch and sink in bit
+        bsshigh = 8e6
+        bsslow = 25e3
+        # pktLength = size of each packet in bit
+        pktLength = 1.2e4
+
+        #grate = packet genrate
+        grate = 16
+
+        #simulation time
+        simTime = 5000
+    else :
+
+        nSource = int(input("Enter Number of Source :"))
+        bs = float(input("Enter bandwdth between Source and switch(bs) in bit:"))
+        bsslow = float(input("Enter bandwidth(lower bound) between switch and sink(bss) in bit:"))
+        bsshigh = float(input("Enter bandwidth(upper bound) between switch and sink(bss) in bit:"))
+        pktLength = int(input("Enter packet length in bit(pktlength) :"))
+        grate = int(input("Enter packet generation rate for source(same for all):"))
+        if pktLength*grate >= bs:
+            print("pktLength*grater should be less than bs")
+            return 0
+        simTime =int(input("Enter Simulation time:"))
+
+    # utilNum = numerator of utilization factor i.e arrival rate
+    global utilNum
+    # x and y holds value of delay and utilizationfactor
+    x = []
+    y = []
+
+    # creating source object
+    source = []
+    for i in range(nSource):
+        source.append(DATASOURCE(grate, i, bs))
+        utilNum = utilNum + grate
+
+    nbss = bsslow
+    # varying nbss i.e bss for plotting
+    while (nbss<=bsshigh):
+        loadfactor = (utilNum * pktLength) / nbss
+        avgDelay = calculateAvgDelay(nSource, bs, nbss, pktLength, source,simTime)
+        x.append(loadfactor)
+        y.append(avgDelay)
+        print(loadfactor, " ", avgDelay)
+        if(loadfactor>1):
+        	nbss = nbss + (bsshigh-bsslow)/2000 
+        else:
+        	nbss = nbss + (bsshigh-bsslow)/150
+       
+    # plotting curve
+    plt.plot(x, y)
+    plt.xlabel("Utilization Factor")
+    plt.ylabel("Average Delay")
+    #plt.text(x[len(x)-1],y[len(y)-1],"nSource=4,bs(bit)=2e6,\nlambda(gen rate)=16,\n pktlength=12000 bit,\nbsslow(bit/s)=25000,bsshigh=8e6")
+    plt.title("Average delay vs utilizationFactor")
+    plt.show()
+
+
+if __name__ == "__main__":
+    main()

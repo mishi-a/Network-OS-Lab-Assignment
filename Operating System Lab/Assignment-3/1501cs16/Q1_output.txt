@@ -1,0 +1,10 @@
+//Output :
+           
+Child Process Id is 12707
+ and parent process id 12706
+          PID   PPID
+1 Z  1000 12707 12706  0  80   0 -     0 exit   pts/4    00:00:00 a.out <defunct>
+
+Checking after zombie is cleaned  // no process
+
+

@@ -1,0 +1,13 @@
+//OUTPUT
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-8$ gcc Q1.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-8$ ./a.out
+Address of Variable in text section 0x400666
+Address of Variable in bssSegmentVar 0x601068
+Address of Variable in stackSegmentVar 0x7ffdd9e34784
+Address of Variable in heapSection 0xbe7010
+Size of each segment : 
+   text	   data	    bss	    dec	    hex	filename
+   1928	    588	     24	   2540	    9ec	a.out
+
+//EXPLANATION :
+Defining variable in each segment and using & to print it's corresponding addresses.   

@@ -1,0 +1,54 @@
+//Output
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ gcc Q2.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ ./a.out 
+Welcome to the indexed File
+Enter the number of Block in disk
+30
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,indexed block and total number of block in file
+f1 15 6
+
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name 	Index Block      Block Stored
+f1 		15 		0 1 2 3 4 5 
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,indexed block and total number of block in file
+f2 29 23
+Not Enough free Space
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,indexed block and total number of block in file
+f2 29 22
+
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name 	Index Block      Block Stored
+f1 		15 		0 1 2 3 4 5 
+f2 		29 		6 7 8 9 10 11 12 13 14 16 17 18 19 20 21 22 23 24 25 26 27 28 
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+3
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ 
+
+//Explanation :
+In indexed an index block store the pointer address of all the block in the disk which are allocated to the corresponding blocks of file.

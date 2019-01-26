@@ -1,0 +1,13 @@
+//Output
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ gcc -pthread Q1.c 
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ ./a.out 
+Thread1 :
+ CSE OS LAB, by Thread ID: 140311973226240
+Thread3 :
+ CSE OS LAB, by Thread ID: 140311956440832
+Thread2 :
+ CSE OS LAB, by Thread ID: 140311964833536
+
+
+//Explanation:
+In this we are creatng 3 thread and printing there thread id in threadFunc using pthread_self().finally we have used pthread_exit(NULL) which terminate main thread although its child thread may be running.

@@ -1,0 +1,6 @@
+//Explanation
+1.dstring.c
+In this we take input from command line and read it word by word after opening the file. if number of count of word is divisible by 3 we print the corresponding word.
+
+2.pstring.c
+In this we first take the file name from command line and used "xterm" to run the command in  newly open window.system() is used to execute corresponding command.

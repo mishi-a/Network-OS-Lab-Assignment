@@ -1,0 +1,45 @@
+OUTPUT:
+Parent Process id is 16016
+  PID TTY          TIME CMD
+ 7060 pts/2    00:00:00 bash
+ 8748 pts/2    00:00:00 a.out
+ 8819 pts/2    00:00:00 a.out
+ 8833 pts/2    00:00:00 a.out
+13485 pts/2    00:00:00 man
+13497 pts/2    00:00:00 pager
+14064 pts/2    00:00:00 Q5.sh
+14065 pts/2    00:00:00 cat
+14140 pts/2    00:00:00 cat
+16016 pts/2    00:00:00 a.out
+16017 pts/2    00:00:00 a.out
+16018 pts/2    00:00:00 sh
+16019 pts/2    00:00:00 ps
+child Process ID  is 16017
+  PID TTY          TIME CMD
+ 7060 pts/2    00:00:00 bash
+ 8748 pts/2    00:00:00 a.out
+ 8819 pts/2    00:00:00 a.out
+ 8833 pts/2    00:00:00 a.out
+13485 pts/2    00:00:00 man
+13497 pts/2    00:00:00 pager
+14064 pts/2    00:00:00 Q5.sh
+14065 pts/2    00:00:00 cat
+14140 pts/2    00:00:00 cat
+16016 pts/2    00:00:00 a.out
+16017 pts/2    00:00:00 a.out
+16030 pts/2    00:00:00 sh
+16031 pts/2    00:00:00 ps
+Parent Process id is 16016
+  PID TTY          TIME CMD
+ 7060 pts/2    00:00:00 bash
+ 8748 pts/2    00:00:00 a.out
+ 8819 pts/2    00:00:00 a.out
+ 8833 pts/2    00:00:00 a.out
+13485 pts/2    00:00:00 man
+13497 pts/2    00:00:00 pager
+14064 pts/2    00:00:00 Q5.sh
+14065 pts/2    00:00:00 cat
+14140 pts/2    00:00:00 cat
+16016 pts/2    00:00:00 a.out
+16032 pts/2    00:00:00 sh
+16033 pts/2    00:00:00 ps

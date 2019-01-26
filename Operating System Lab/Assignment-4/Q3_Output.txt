@@ -1,0 +1,19 @@
+//Output
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ gcc -pthread Q3.c 
+darkmatter@hp-15:~/Desktop/oslab/Assignment-4$ ./a.out 
+threadID[0] : creating thread = 140295092061952
+Completed join with thread 140295092061952 having a status of 0
+threadID[1] : creating thread = 140295092061952
+Completed join with thread 140295092061952 having a status of 0
+threadID[2] : creating thread = 140295092061952
+Completed join with thread 140295092061952 having a status of 0
+threadID[3] : creating thread = 140295092061952
+Completed join with thread 140295092061952 having a status of 0
+threadID[4] : creating thread = 140295092061952
+Completed join with thread 140295092061952 having a status of 0
+
+
+Exiting from program.
+
+//Explanation:
+Each thread has same threadId because before creation of new thread, previous thread has been over using pthread_join so they are getting same thread id.pthread_create() returns 0 if ok similarly join return 0 if ok.

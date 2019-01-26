@@ -1,0 +1,8 @@
+//my init() has id 1638 by default 1
+
+/*Explanation*/
+Orphan process are those process which exist even after its parent is dead.Here parent process id is 8330 which is killed before child process so orphan child is handled by init() process which can be seen in the output above i.e pid 1638(in my case) for orphan process pid 8331.
+
+Significance of Orphan process :
+A process may also be intentionally orphaned so that it becomes detached from the user’s session and left running in the background.
+Usually to allow a long-running job to complete without further user attention, or to start an indefinitely running service

@@ -1,0 +1,22 @@
+//Output
+Child Process id is 8331
+ and Parent process id is 8330
+This is Parent process
+
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  4544  4537  0  80   0 -  5675 wait_w pts/2    00:00:00 bash
+0 T  1000  4575  4544  0  80   0 -  1056 signal pts/2    00:00:00 a.out
+1 Z  1000  4576  4575  0  80   0 -     0 exit   pts/2    00:00:00 a.ou <defunct>
+1 S  1000  6663  1638  0  80   0 -  1089 pipe_w pts/2    00:00:00 a.out
+1 S  1000  8247  1638  0  80   0 -  1056 pipe_w pts/2    00:00:00 a.out
+0 T  1000  8297  4544  0  80   0 -  1089 signal pts/2    00:00:00 a.out
+1 Z  1000  8298  8297  0  80   0 -     0 exit   pts/2    00:00:00 a.ou <defunct>
+1 S  1000  8331  1638  0  80   0 -  1089 wait   pts/2    00:00:00 a.out
+0 S  1000  8342  8331  0  80   0 -  1127 wait   pts/2    00:00:00 sh
+4 R  1000  8343  8342  0  80   0 -  7229 -      pts/2    00:00:00 ps
+Parent Process is killed so child process is Orphan process
+
+//my init() has id 1638
+
+/*Explanation*/
+Orphan process are those process which exist even after its parent is dead.Here parent process id is 8330 which is killed before child process so orphan child is handled by init() process which can be seen in the output above i.e pid 1638(in my case) for orphan process pid 8331.

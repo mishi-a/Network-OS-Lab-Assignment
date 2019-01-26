@@ -1,0 +1,60 @@
+//Output
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ gcc Q3.c 
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ ./a.out 
+Welcome to the linked list File
+Enter the number of Block in disk
+30
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,start block and total number of block in file
+f1 23 6
+
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name     Block Stored
+f1 		23 ->0 ->1 ->2 ->3 ->4 ->NULL
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,start block and total number of block in file
+f2 4 5
+Start Block is not empty or invalid
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+1
+Enter File name,start block and total number of block in file
+f3 29 24
+
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+2
+File name     Block Stored
+f1 		23 ->0 ->1 ->2 ->3 ->4 ->NULL
+f3 		29 ->5 ->6 ->7 ->8 ->9 ->10 ->11 ->12 ->13 ->14 ->15 ->16 ->17 ->18 ->19 ->20 ->21 ->22 ->24 ->25 ->26 ->27 ->28 ->NULL
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+4
+Invalid Input
+Enter : 
+1. To add File
+2. To Print Directory 
+3. TO exit
+3
+darkmatter@hp-15:~/Dropbox/oslab/Assignment-11$ 
+
+//Explanation:
+In linked file system a start block is used which stores the address of next block for the corresponding file.

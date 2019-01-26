@@ -1,0 +1,25 @@
+1.
+a : cpu = 4
+    core = 2
+
+b. freq1 = 1331.531 Mhz 
+   freq2 = 1700.062 Mhz
+   freq3 = 1130.625 Mhz
+   freq4 = 800.531  Mhz
+
+c. memory = 3883 MB
+
+d. free = 489 MB
+   available = 1476 MB
+   difference :
+     available memory = free memory + cached memory
+     free memory = free memory
+
+  free memory = This is memory that is currently unused by the system and contains no useful data at all. 
+                It is free to be used by the system at any time.
+  available memory = While this sounds extremely similar to free memory, 
+                     it is actually a broader category that includes both free memory and cached memory.
+
+e.  total number of user-level processes = 100
+    
+     

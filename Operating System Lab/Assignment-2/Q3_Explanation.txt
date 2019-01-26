@@ -1,0 +1,2 @@
+//Explanation:
+As before fork() there was only one process with glob initialized to 50.After fork() two identical address space is created one for parent and other for child process.both have glob initialized to 50,But as they have separate address space the change in glob variable will be independent i.e they do not interact with each other.

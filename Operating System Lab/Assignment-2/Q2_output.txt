@@ -1,0 +1,13 @@
+OUTPUT:
+Current Process id is 14940
+Enter the value of n to find factorial 
+5
+The factorial before fork is 120
+Current Process id is 14942
+Enter the value of n to find factorial 
+4 
+The factorial after fork is 24
+Current Process id is 14940
+Enter the value of n to find factorial 
+6
+The factorial after fork is 720

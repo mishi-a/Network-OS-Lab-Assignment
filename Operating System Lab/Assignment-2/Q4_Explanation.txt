@@ -1,0 +1,2 @@
+//Explanation :
+First there is a parent process which creates the child process using fork() command.In order to display the process we have used system("ps") command which display the process running in child or parent process.And input is in sec and it is taken by command line.
